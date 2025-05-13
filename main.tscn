@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://blbpah80bxver"]
+
+[ext_resource type="PackedScene" uid="uid://c616qqvypar3u" path="res://menu.tscn" id="1_euqha"]
+[ext_resource type="Script" path="res://src/App.cs" id="1_kd0tc"]
+[ext_resource type="PackedScene" uid="uid://dbks08375vtk8" path="res://debug_window.tscn" id="3_vibjm"]
+[ext_resource type="Script" path="res://src/EmulatorInput.cs" id="4_g3mno"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_ntv6f"]
+
+[node name="MainPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kd0tc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopMenuBar" parent="VBoxContainer" instance=ExtResource("1_euqha")]
+layout_mode = 2
+
+[node name="MenuBar" parent="VBoxContainer/TopMenuBar" index="0"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+
+[node name="Debug" parent="VBoxContainer/TopMenuBar/MenuBar" index="1"]
+layout_mode = 1
+
+[node name="Screen" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DebugWindow" parent="." instance=ExtResource("3_vibjm")]
+visible = false
+layout_mode = 1
+
+[node name="HBoxContainer" parent="DebugWindow/VBoxContainer" index="0"]
+visible = true
+
+[node name="CpuInfoCollapse" parent="DebugWindow/VBoxContainer" index="1"]
+visible = true
+
+[node name="CombineRegister" parent="DebugWindow/VBoxContainer" index="2"]
+visible = true
+
+[node name="CpuLog" parent="DebugWindow/VBoxContainer" index="4"]
+size_flags_vertical = 3
+
+[node name="SerialLog" parent="DebugWindow/VBoxContainer" index="5"]
+size_flags_vertical = 3
+
+[node name="Tiles" parent="DebugWindow/VBoxContainer" index="6"]
+visible = false
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource("4_g3mno")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamGenerator_ntv6f")
+
+[connection signal="OnSelectCartridgeFile" from="VBoxContainer/TopMenuBar/MenuBar/File" to="." method="PopupSelectCartridgeFile"]
+[connection signal="pressed" from="VBoxContainer/TopMenuBar/MenuBar/Debug" to="." method="PopupDebugWindow"]
+[connection signal="NewEmulator" from="VBoxContainer/TopMenuBar/MenuBar/FileDialog" to="." method="NewEmulator"]
+[connection signal="pressed" from="DebugWindow/VBoxContainer/HBoxContainer/Restart" to="." method="Reset"]
+[connection signal="pressed" from="DebugWindow/VBoxContainer/CpuLogCtrl/CpuStepInfo/Step/CpuStep" to="." method="CpuStepCallback"]
+
+[editable path="VBoxContainer/TopMenuBar"]
+[editable path="DebugWindow"]

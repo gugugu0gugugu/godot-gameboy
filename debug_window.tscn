@@ -1,0 +1,340 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbks08375vtk8"]
+
+[ext_resource type="Script" path="res://src/DebugWindow.cs" id="1_5j52m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7xot"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+border_color = Color(0.0399025, 0.116708, 0.331921, 1)
+
+[sub_resource type="Theme" id="Theme_unu43"]
+Label/styles/normal = SubResource("StyleBoxFlat_n7xot")
+
+[sub_resource type="Theme" id="Theme_p5cgc"]
+
+[node name="DebugWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5j52m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_unu43")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Restart" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Restart"
+
+[node name="Close" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Close"
+
+[node name="CpuInfoCollapse" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "CpuInfo"
+alignment = 0
+
+[node name="CombineRegister" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_p5cgc")
+
+[node name="DetailAF" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="AF_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailAF"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "AF"
+
+[node name="AF_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailAF"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="A_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailAF"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "A"
+
+[node name="A_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailAF"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="F_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailAF"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "F"
+
+[node name="F_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailAF"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="DetailBC" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="BC_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BC"
+
+[node name="BC_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="B_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "B"
+
+[node name="B_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="C_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C"
+
+[node name="C_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailBC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="DetailDE" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="DE_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailDE"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DE"
+
+[node name="DE_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailDE"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="D_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailDE"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "D"
+
+[node name="D_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailDE"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="E_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailDE"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "E"
+
+[node name="E_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailDE"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="DetailHL" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="HL_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailHL"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HL"
+
+[node name="HL_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailHL"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="H_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailHL"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "H"
+
+[node name="H_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailHL"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="L_Label" type="Label" parent="VBoxContainer/CombineRegister/DetailHL"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "L"
+
+[node name="L_Value" type="Label" parent="VBoxContainer/CombineRegister/DetailHL"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="Special" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="PC_Label" type="Label" parent="VBoxContainer/CombineRegister/Special"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PC"
+
+[node name="PC_Value" type="Label" parent="VBoxContainer/CombineRegister/Special"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="SP_Label" type="Label" parent="VBoxContainer/CombineRegister/Special"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SP"
+
+[node name="SP_Value" type="Label" parent="VBoxContainer/CombineRegister/Special"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AF"
+
+[node name="Label" type="Label" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+text = "Flags"
+
+[node name="FlagsName" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="Z" type="Label" parent="VBoxContainer/CombineRegister/FlagsName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Z"
+
+[node name="N" type="Label" parent="VBoxContainer/CombineRegister/FlagsName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "N"
+
+[node name="H" type="Label" parent="VBoxContainer/CombineRegister/FlagsName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "H"
+
+[node name="C" type="Label" parent="VBoxContainer/CombineRegister/FlagsName"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C"
+
+[node name="FlagsValue" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="Z" type="Label" parent="VBoxContainer/CombineRegister/FlagsValue"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Z"
+
+[node name="N" type="Label" parent="VBoxContainer/CombineRegister/FlagsValue"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "N"
+
+[node name="H" type="Label" parent="VBoxContainer/CombineRegister/FlagsValue"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "H"
+
+[node name="C" type="Label" parent="VBoxContainer/CombineRegister/FlagsValue"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CombineRegister"]
+layout_mode = 2
+
+[node name="CpuSpeedScaleSlider" type="HSlider" parent="VBoxContainer/CombineRegister/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="CpuSpeedScale" type="Label" parent="VBoxContainer/CombineRegister/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CpuSpeedScale"
+horizontal_alignment = 1
+
+[node name="CpuLogCtrl" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CpuStepInfo" type="VSplitContainer" parent="VBoxContainer/CpuLogCtrl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Step" type="HBoxContainer" parent="VBoxContainer/CpuLogCtrl/CpuStepInfo"]
+layout_mode = 2
+
+[node name="CpuStep" type="Button" parent="VBoxContainer/CpuLogCtrl/CpuStepInfo/Step"]
+layout_mode = 2
+text = "CpuStep"
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/CpuLogCtrl/CpuStepInfo/Step"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "enter step"
+context_menu_enabled = false
+
+[node name="Info" type="Label" parent="VBoxContainer/CpuLogCtrl/CpuStepInfo"]
+layout_mode = 2
+text = "NextInstruction: "
+
+[node name="StartLog" type="Button" parent="VBoxContainer/CpuLogCtrl"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "StartLog"
+
+[node name="StopLog" type="Button" parent="VBoxContainer/CpuLogCtrl"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "StopLog"
+
+[node name="ClearLog" type="Button" parent="VBoxContainer/CpuLogCtrl"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "ClearLog"
+
+[node name="CpuLog" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+scroll_following = true
+
+[node name="SerialLog" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+text = "s"
+scroll_following = true
+
+[node name="Tiles" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Close" to="." method="hide"]
+[connection signal="pressed" from="VBoxContainer/CpuLogCtrl/StartLog" to="." method="StartLogCallback"]
+[connection signal="pressed" from="VBoxContainer/CpuLogCtrl/StopLog" to="." method="StopLogCallback"]
+[connection signal="pressed" from="VBoxContainer/CpuLogCtrl/ClearLog" to="." method="ClearLogCallback"]
